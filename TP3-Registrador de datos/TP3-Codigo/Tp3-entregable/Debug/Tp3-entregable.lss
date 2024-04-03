@@ -1,0 +1,1313 @@
+
+Tp3-entregable.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         000000a8  00800100  000008da  0000096e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000008da  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000025  008001a8  008001a8  00000a16  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000a16  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000a48  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000130  00000000  00000000  00000a88  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000138a  00000000  00000000  00000bb8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000ae2  00000000  00000000  00001f42  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000c57  00000000  00000000  00002a24  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000310  00000000  00000000  0000367c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000782  00000000  00000000  0000398c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000a87  00000000  00000000  0000410e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000f0  00000000  00000000  00004b95  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 33 02 	jmp	0x466	; 0x466 <__vector_18>
+  4c:	0c 94 91 02 	jmp	0x522	; 0x522 <__vector_19>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	ea ed       	ldi	r30, 0xDA	; 218
+  7c:	f8 e0       	ldi	r31, 0x08	; 8
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a8 3a       	cpi	r26, 0xA8	; 168
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	a8 ea       	ldi	r26, 0xA8	; 168
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	ad 3c       	cpi	r26, 0xCD	; 205
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <main>
+  9e:	0c 94 6b 04 	jmp	0x8d6	; 0x8d6 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <dht11_iniciaryleerdato>:
+int td=0;
+int sumcheck=0;
+
+void dht11_iniciaryleerdato(int *temp , int *tempD, int *hum){
+	int cant;
+	h=0;
+  a6:	10 92 b1 01 	sts	0x01B1, r1	; 0x8001b1 <h+0x1>
+  aa:	10 92 b0 01 	sts	0x01B0, r1	; 0x8001b0 <h>
+	hd=0;
+  ae:	10 92 af 01 	sts	0x01AF, r1	; 0x8001af <hd+0x1>
+  b2:	10 92 ae 01 	sts	0x01AE, r1	; 0x8001ae <hd>
+	t=0;
+  b6:	10 92 ad 01 	sts	0x01AD, r1	; 0x8001ad <t+0x1>
+  ba:	10 92 ac 01 	sts	0x01AC, r1	; 0x8001ac <t>
+	td=0;
+  be:	10 92 ab 01 	sts	0x01AB, r1	; 0x8001ab <td+0x1>
+  c2:	10 92 aa 01 	sts	0x01AA, r1	; 0x8001aa <td>
+	sumcheck=0;
+  c6:	10 92 a9 01 	sts	0x01A9, r1	; 0x8001a9 <__data_end+0x1>
+  ca:	10 92 a8 01 	sts	0x01A8, r1	; 0x8001a8 <__data_end>
+	
+	//configuro el pin C0 como salida y lo pongo en alto;
+	DDRC |= (1<<PORTC0);
+  ce:	27 b1       	in	r18, 0x07	; 7
+  d0:	21 60       	ori	r18, 0x01	; 1
+  d2:	27 b9       	out	0x07, r18	; 7
+	PORTC |=(1<<PORTC0);
+  d4:	28 b1       	in	r18, 0x08	; 8
+  d6:	21 60       	ori	r18, 0x01	; 1
+  d8:	28 b9       	out	0x08, r18	; 8
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  da:	2f ef       	ldi	r18, 0xFF	; 255
+  dc:	39 ef       	ldi	r19, 0xF9	; 249
+  de:	e0 e0       	ldi	r30, 0x00	; 0
+  e0:	21 50       	subi	r18, 0x01	; 1
+  e2:	30 40       	sbci	r19, 0x00	; 0
+  e4:	e0 40       	sbci	r30, 0x00	; 0
+  e6:	e1 f7       	brne	.-8      	; 0xe0 <dht11_iniciaryleerdato+0x3a>
+  e8:	00 c0       	rjmp	.+0      	; 0xea <dht11_iniciaryleerdato+0x44>
+  ea:	00 00       	nop
+	_delay_ms(20);
+	
+	//Hago 0 la señal por al menos 18 ms (start signal)
+	PORTC &= ~(1<<PORTC0);
+  ec:	28 b1       	in	r18, 0x08	; 8
+  ee:	2e 7f       	andi	r18, 0xFE	; 254
+  f0:	28 b9       	out	0x08, r18	; 8
+  f2:	ff ef       	ldi	r31, 0xFF	; 255
+  f4:	20 ee       	ldi	r18, 0xE0	; 224
+  f6:	30 e0       	ldi	r19, 0x00	; 0
+  f8:	f1 50       	subi	r31, 0x01	; 1
+  fa:	20 40       	sbci	r18, 0x00	; 0
+  fc:	30 40       	sbci	r19, 0x00	; 0
+  fe:	e1 f7       	brne	.-8      	; 0xf8 <dht11_iniciaryleerdato+0x52>
+ 100:	00 c0       	rjmp	.+0      	; 0x102 <dht11_iniciaryleerdato+0x5c>
+ 102:	00 00       	nop
+	_delay_ms(18);
+	
+	//configura como entrada pull up c0 y pongo en alto la señal y en un lapso de 20 a 40us el sensor deberia responder
+	DDRC &=~(1<<PORTC0);
+ 104:	27 b1       	in	r18, 0x07	; 7
+ 106:	2e 7f       	andi	r18, 0xFE	; 254
+ 108:	27 b9       	out	0x07, r18	; 7
+	PORTC |=(1<<PORTC0);
+ 10a:	28 b1       	in	r18, 0x08	; 8
+ 10c:	21 60       	ori	r18, 0x01	; 1
+ 10e:	28 b9       	out	0x08, r18	; 8
+
+	//espero a que el sensor responda bajando la señal por 80us y despues subiendola por 80us
+	while(PINC & (1<<PORTC0));//mientras siga en alto espero a que el sensor la haga cero
+ 110:	30 99       	sbic	0x06, 0	; 6
+ 112:	fe cf       	rjmp	.-4      	; 0x110 <dht11_iniciaryleerdato+0x6a>
+	while((PINC & (1<<PORTC0))==0);//mientras este en cero espero a que el sensor la haga uno
+ 114:	30 9b       	sbis	0x06, 0	; 6
+ 116:	fe cf       	rjmp	.-4      	; 0x114 <dht11_iniciaryleerdato+0x6e>
+	
+	//Empieza la transmision de datos
+	
+	//huemdad entero
+	for(i=0; i<8; i++){
+ 118:	10 92 c0 01 	sts	0x01C0, r1	; 0x8001c0 <i+0x1>
+ 11c:	10 92 bf 01 	sts	0x01BF, r1	; 0x8001bf <i>
+ 120:	32 c0       	rjmp	.+100    	; 0x186 <dht11_iniciaryleerdato+0xe0>
+		cant=0;
+		while(PINC & (1<<PORTC0)); //Espero los 50us que tarda en enviar un bit
+ 122:	30 99       	sbic	0x06, 0	; 6
+ 124:	fe cf       	rjmp	.-4      	; 0x122 <dht11_iniciaryleerdato+0x7c>
+		while((PINC & (1<<PORTC0))==0);//Una vez que esta en alto esta trasmitiendo el bit de informacion
+ 126:	30 9b       	sbis	0x06, 0	; 6
+ 128:	fe cf       	rjmp	.-4      	; 0x126 <dht11_iniciaryleerdato+0x80>
+ 12a:	20 e0       	ldi	r18, 0x00	; 0
+ 12c:	30 e0       	ldi	r19, 0x00	; 0
+ 12e:	06 c0       	rjmp	.+12     	; 0x13c <dht11_iniciaryleerdato+0x96>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 130:	e5 e0       	ldi	r30, 0x05	; 5
+ 132:	ea 95       	dec	r30
+ 134:	f1 f7       	brne	.-4      	; 0x132 <dht11_iniciaryleerdato+0x8c>
+ 136:	00 00       	nop
+		while(PINC & (1<<PORTC0)){
+			_delay_us(1);
+			cant++;
+ 138:	2f 5f       	subi	r18, 0xFF	; 255
+ 13a:	3f 4f       	sbci	r19, 0xFF	; 255
+	//huemdad entero
+	for(i=0; i<8; i++){
+		cant=0;
+		while(PINC & (1<<PORTC0)); //Espero los 50us que tarda en enviar un bit
+		while((PINC & (1<<PORTC0))==0);//Una vez que esta en alto esta trasmitiendo el bit de informacion
+		while(PINC & (1<<PORTC0)){
+ 13c:	30 99       	sbic	0x06, 0	; 6
+ 13e:	f8 cf       	rjmp	.-16     	; 0x130 <dht11_iniciaryleerdato+0x8a>
+			_delay_us(1);
+			cant++;
+		}
+		if(cant < 29)
+ 140:	2d 31       	cpi	r18, 0x1D	; 29
+ 142:	31 05       	cpc	r19, r1
+ 144:	5c f4       	brge	.+22     	; 0x15c <dht11_iniciaryleerdato+0xb6>
+			h = (h<<1);
+ 146:	20 91 b0 01 	lds	r18, 0x01B0	; 0x8001b0 <h>
+ 14a:	30 91 b1 01 	lds	r19, 0x01B1	; 0x8001b1 <h+0x1>
+ 14e:	22 0f       	add	r18, r18
+ 150:	33 1f       	adc	r19, r19
+ 152:	30 93 b1 01 	sts	0x01B1, r19	; 0x8001b1 <h+0x1>
+ 156:	20 93 b0 01 	sts	0x01B0, r18	; 0x8001b0 <h>
+ 15a:	0b c0       	rjmp	.+22     	; 0x172 <dht11_iniciaryleerdato+0xcc>
+		else
+			h = (h<<1)|(0x01);
+ 15c:	20 91 b0 01 	lds	r18, 0x01B0	; 0x8001b0 <h>
+ 160:	30 91 b1 01 	lds	r19, 0x01B1	; 0x8001b1 <h+0x1>
+ 164:	22 0f       	add	r18, r18
+ 166:	33 1f       	adc	r19, r19
+ 168:	21 60       	ori	r18, 0x01	; 1
+ 16a:	30 93 b1 01 	sts	0x01B1, r19	; 0x8001b1 <h+0x1>
+ 16e:	20 93 b0 01 	sts	0x01B0, r18	; 0x8001b0 <h>
+	while((PINC & (1<<PORTC0))==0);//mientras este en cero espero a que el sensor la haga uno
+	
+	//Empieza la transmision de datos
+	
+	//huemdad entero
+	for(i=0; i<8; i++){
+ 172:	20 91 bf 01 	lds	r18, 0x01BF	; 0x8001bf <i>
+ 176:	30 91 c0 01 	lds	r19, 0x01C0	; 0x8001c0 <i+0x1>
+ 17a:	2f 5f       	subi	r18, 0xFF	; 255
+ 17c:	3f 4f       	sbci	r19, 0xFF	; 255
+ 17e:	30 93 c0 01 	sts	0x01C0, r19	; 0x8001c0 <i+0x1>
+ 182:	20 93 bf 01 	sts	0x01BF, r18	; 0x8001bf <i>
+ 186:	20 91 bf 01 	lds	r18, 0x01BF	; 0x8001bf <i>
+ 18a:	30 91 c0 01 	lds	r19, 0x01C0	; 0x8001c0 <i+0x1>
+ 18e:	28 30       	cpi	r18, 0x08	; 8
+ 190:	31 05       	cpc	r19, r1
+ 192:	3c f2       	brlt	.-114    	; 0x122 <dht11_iniciaryleerdato+0x7c>
+		else
+			h = (h<<1)|(0x01);
+	}
+	
+	//humedad decimal
+	for(i=0; i<8; i++){
+ 194:	10 92 c0 01 	sts	0x01C0, r1	; 0x8001c0 <i+0x1>
+ 198:	10 92 bf 01 	sts	0x01BF, r1	; 0x8001bf <i>
+ 19c:	32 c0       	rjmp	.+100    	; 0x202 <dht11_iniciaryleerdato+0x15c>
+		cant=0;
+		while(PINC & (1<<PORTC0));
+ 19e:	30 99       	sbic	0x06, 0	; 6
+ 1a0:	fe cf       	rjmp	.-4      	; 0x19e <dht11_iniciaryleerdato+0xf8>
+		while((PINC & (1<<PORTC0))==0);
+ 1a2:	30 9b       	sbis	0x06, 0	; 6
+ 1a4:	fe cf       	rjmp	.-4      	; 0x1a2 <dht11_iniciaryleerdato+0xfc>
+ 1a6:	20 e0       	ldi	r18, 0x00	; 0
+ 1a8:	30 e0       	ldi	r19, 0x00	; 0
+ 1aa:	06 c0       	rjmp	.+12     	; 0x1b8 <dht11_iniciaryleerdato+0x112>
+ 1ac:	f5 e0       	ldi	r31, 0x05	; 5
+ 1ae:	fa 95       	dec	r31
+ 1b0:	f1 f7       	brne	.-4      	; 0x1ae <dht11_iniciaryleerdato+0x108>
+ 1b2:	00 00       	nop
+		while(PINC & (1<<PORTC0)){
+			_delay_us(1);
+			cant++;
+ 1b4:	2f 5f       	subi	r18, 0xFF	; 255
+ 1b6:	3f 4f       	sbci	r19, 0xFF	; 255
+	//humedad decimal
+	for(i=0; i<8; i++){
+		cant=0;
+		while(PINC & (1<<PORTC0));
+		while((PINC & (1<<PORTC0))==0);
+		while(PINC & (1<<PORTC0)){
+ 1b8:	30 99       	sbic	0x06, 0	; 6
+ 1ba:	f8 cf       	rjmp	.-16     	; 0x1ac <dht11_iniciaryleerdato+0x106>
+			_delay_us(1);
+			cant++;
+		}
+		if(cant < 29)
+ 1bc:	2d 31       	cpi	r18, 0x1D	; 29
+ 1be:	31 05       	cpc	r19, r1
+ 1c0:	5c f4       	brge	.+22     	; 0x1d8 <dht11_iniciaryleerdato+0x132>
+			hd = (hd<<1);
+ 1c2:	20 91 ae 01 	lds	r18, 0x01AE	; 0x8001ae <hd>
+ 1c6:	30 91 af 01 	lds	r19, 0x01AF	; 0x8001af <hd+0x1>
+ 1ca:	22 0f       	add	r18, r18
+ 1cc:	33 1f       	adc	r19, r19
+ 1ce:	30 93 af 01 	sts	0x01AF, r19	; 0x8001af <hd+0x1>
+ 1d2:	20 93 ae 01 	sts	0x01AE, r18	; 0x8001ae <hd>
+ 1d6:	0b c0       	rjmp	.+22     	; 0x1ee <dht11_iniciaryleerdato+0x148>
+		else
+			hd = (hd<<1)|(0x01);
+ 1d8:	20 91 ae 01 	lds	r18, 0x01AE	; 0x8001ae <hd>
+ 1dc:	30 91 af 01 	lds	r19, 0x01AF	; 0x8001af <hd+0x1>
+ 1e0:	22 0f       	add	r18, r18
+ 1e2:	33 1f       	adc	r19, r19
+ 1e4:	21 60       	ori	r18, 0x01	; 1
+ 1e6:	30 93 af 01 	sts	0x01AF, r19	; 0x8001af <hd+0x1>
+ 1ea:	20 93 ae 01 	sts	0x01AE, r18	; 0x8001ae <hd>
+		else
+			h = (h<<1)|(0x01);
+	}
+	
+	//humedad decimal
+	for(i=0; i<8; i++){
+ 1ee:	20 91 bf 01 	lds	r18, 0x01BF	; 0x8001bf <i>
+ 1f2:	30 91 c0 01 	lds	r19, 0x01C0	; 0x8001c0 <i+0x1>
+ 1f6:	2f 5f       	subi	r18, 0xFF	; 255
+ 1f8:	3f 4f       	sbci	r19, 0xFF	; 255
+ 1fa:	30 93 c0 01 	sts	0x01C0, r19	; 0x8001c0 <i+0x1>
+ 1fe:	20 93 bf 01 	sts	0x01BF, r18	; 0x8001bf <i>
+ 202:	20 91 bf 01 	lds	r18, 0x01BF	; 0x8001bf <i>
+ 206:	30 91 c0 01 	lds	r19, 0x01C0	; 0x8001c0 <i+0x1>
+ 20a:	28 30       	cpi	r18, 0x08	; 8
+ 20c:	31 05       	cpc	r19, r1
+ 20e:	3c f2       	brlt	.-114    	; 0x19e <dht11_iniciaryleerdato+0xf8>
+		else
+			hd = (hd<<1)|(0x01);
+	}
+
+	//temperatura entero
+	for(i=0; i<8; i++){
+ 210:	10 92 c0 01 	sts	0x01C0, r1	; 0x8001c0 <i+0x1>
+ 214:	10 92 bf 01 	sts	0x01BF, r1	; 0x8001bf <i>
+ 218:	32 c0       	rjmp	.+100    	; 0x27e <dht11_iniciaryleerdato+0x1d8>
+		cant=0;
+		while(PINC & (1<<PORTC0));
+ 21a:	30 99       	sbic	0x06, 0	; 6
+ 21c:	fe cf       	rjmp	.-4      	; 0x21a <dht11_iniciaryleerdato+0x174>
+		while((PINC & (1<<PORTC0))==0);
+ 21e:	30 9b       	sbis	0x06, 0	; 6
+ 220:	fe cf       	rjmp	.-4      	; 0x21e <dht11_iniciaryleerdato+0x178>
+ 222:	20 e0       	ldi	r18, 0x00	; 0
+ 224:	30 e0       	ldi	r19, 0x00	; 0
+ 226:	06 c0       	rjmp	.+12     	; 0x234 <dht11_iniciaryleerdato+0x18e>
+ 228:	e5 e0       	ldi	r30, 0x05	; 5
+ 22a:	ea 95       	dec	r30
+ 22c:	f1 f7       	brne	.-4      	; 0x22a <dht11_iniciaryleerdato+0x184>
+ 22e:	00 00       	nop
+		while(PINC & (1<<PORTC0)){
+			_delay_us(1);
+			cant++;
+ 230:	2f 5f       	subi	r18, 0xFF	; 255
+ 232:	3f 4f       	sbci	r19, 0xFF	; 255
+	//temperatura entero
+	for(i=0; i<8; i++){
+		cant=0;
+		while(PINC & (1<<PORTC0));
+		while((PINC & (1<<PORTC0))==0);
+		while(PINC & (1<<PORTC0)){
+ 234:	30 99       	sbic	0x06, 0	; 6
+ 236:	f8 cf       	rjmp	.-16     	; 0x228 <dht11_iniciaryleerdato+0x182>
+			_delay_us(1);
+			cant++;
+		}
+		if(cant < 29)
+ 238:	2d 31       	cpi	r18, 0x1D	; 29
+ 23a:	31 05       	cpc	r19, r1
+ 23c:	5c f4       	brge	.+22     	; 0x254 <dht11_iniciaryleerdato+0x1ae>
+			t = (t<<1);
+ 23e:	20 91 ac 01 	lds	r18, 0x01AC	; 0x8001ac <t>
+ 242:	30 91 ad 01 	lds	r19, 0x01AD	; 0x8001ad <t+0x1>
+ 246:	22 0f       	add	r18, r18
+ 248:	33 1f       	adc	r19, r19
+ 24a:	30 93 ad 01 	sts	0x01AD, r19	; 0x8001ad <t+0x1>
+ 24e:	20 93 ac 01 	sts	0x01AC, r18	; 0x8001ac <t>
+ 252:	0b c0       	rjmp	.+22     	; 0x26a <dht11_iniciaryleerdato+0x1c4>
+		else
+			t = (t<<1)|(0x01);
+ 254:	20 91 ac 01 	lds	r18, 0x01AC	; 0x8001ac <t>
+ 258:	30 91 ad 01 	lds	r19, 0x01AD	; 0x8001ad <t+0x1>
+ 25c:	22 0f       	add	r18, r18
+ 25e:	33 1f       	adc	r19, r19
+ 260:	21 60       	ori	r18, 0x01	; 1
+ 262:	30 93 ad 01 	sts	0x01AD, r19	; 0x8001ad <t+0x1>
+ 266:	20 93 ac 01 	sts	0x01AC, r18	; 0x8001ac <t>
+		else
+			hd = (hd<<1)|(0x01);
+	}
+
+	//temperatura entero
+	for(i=0; i<8; i++){
+ 26a:	20 91 bf 01 	lds	r18, 0x01BF	; 0x8001bf <i>
+ 26e:	30 91 c0 01 	lds	r19, 0x01C0	; 0x8001c0 <i+0x1>
+ 272:	2f 5f       	subi	r18, 0xFF	; 255
+ 274:	3f 4f       	sbci	r19, 0xFF	; 255
+ 276:	30 93 c0 01 	sts	0x01C0, r19	; 0x8001c0 <i+0x1>
+ 27a:	20 93 bf 01 	sts	0x01BF, r18	; 0x8001bf <i>
+ 27e:	20 91 bf 01 	lds	r18, 0x01BF	; 0x8001bf <i>
+ 282:	30 91 c0 01 	lds	r19, 0x01C0	; 0x8001c0 <i+0x1>
+ 286:	28 30       	cpi	r18, 0x08	; 8
+ 288:	31 05       	cpc	r19, r1
+ 28a:	3c f2       	brlt	.-114    	; 0x21a <dht11_iniciaryleerdato+0x174>
+		else
+			t = (t<<1)|(0x01);
+	}
+	
+	//temperatura decimal
+	for(i=0; i<8; i++){
+ 28c:	10 92 c0 01 	sts	0x01C0, r1	; 0x8001c0 <i+0x1>
+ 290:	10 92 bf 01 	sts	0x01BF, r1	; 0x8001bf <i>
+ 294:	32 c0       	rjmp	.+100    	; 0x2fa <dht11_iniciaryleerdato+0x254>
+		cant=0;
+		while(PINC & (1<<PORTC0));
+ 296:	30 99       	sbic	0x06, 0	; 6
+ 298:	fe cf       	rjmp	.-4      	; 0x296 <dht11_iniciaryleerdato+0x1f0>
+		while((PINC & (1<<PORTC0))==0);
+ 29a:	30 9b       	sbis	0x06, 0	; 6
+ 29c:	fe cf       	rjmp	.-4      	; 0x29a <dht11_iniciaryleerdato+0x1f4>
+ 29e:	20 e0       	ldi	r18, 0x00	; 0
+ 2a0:	30 e0       	ldi	r19, 0x00	; 0
+ 2a2:	06 c0       	rjmp	.+12     	; 0x2b0 <dht11_iniciaryleerdato+0x20a>
+ 2a4:	f5 e0       	ldi	r31, 0x05	; 5
+ 2a6:	fa 95       	dec	r31
+ 2a8:	f1 f7       	brne	.-4      	; 0x2a6 <dht11_iniciaryleerdato+0x200>
+ 2aa:	00 00       	nop
+		while(PINC & (1<<PORTC0)){
+			_delay_us(1);
+			cant++;
+ 2ac:	2f 5f       	subi	r18, 0xFF	; 255
+ 2ae:	3f 4f       	sbci	r19, 0xFF	; 255
+	//temperatura decimal
+	for(i=0; i<8; i++){
+		cant=0;
+		while(PINC & (1<<PORTC0));
+		while((PINC & (1<<PORTC0))==0);
+		while(PINC & (1<<PORTC0)){
+ 2b0:	30 99       	sbic	0x06, 0	; 6
+ 2b2:	f8 cf       	rjmp	.-16     	; 0x2a4 <dht11_iniciaryleerdato+0x1fe>
+			_delay_us(1);
+			cant++;
+		}
+		if(cant < 29)
+ 2b4:	2d 31       	cpi	r18, 0x1D	; 29
+ 2b6:	31 05       	cpc	r19, r1
+ 2b8:	5c f4       	brge	.+22     	; 0x2d0 <dht11_iniciaryleerdato+0x22a>
+			td = (td<<1);
+ 2ba:	20 91 aa 01 	lds	r18, 0x01AA	; 0x8001aa <td>
+ 2be:	30 91 ab 01 	lds	r19, 0x01AB	; 0x8001ab <td+0x1>
+ 2c2:	22 0f       	add	r18, r18
+ 2c4:	33 1f       	adc	r19, r19
+ 2c6:	30 93 ab 01 	sts	0x01AB, r19	; 0x8001ab <td+0x1>
+ 2ca:	20 93 aa 01 	sts	0x01AA, r18	; 0x8001aa <td>
+ 2ce:	0b c0       	rjmp	.+22     	; 0x2e6 <dht11_iniciaryleerdato+0x240>
+		else
+			td = (td<<1)|(0x01);
+ 2d0:	20 91 aa 01 	lds	r18, 0x01AA	; 0x8001aa <td>
+ 2d4:	30 91 ab 01 	lds	r19, 0x01AB	; 0x8001ab <td+0x1>
+ 2d8:	22 0f       	add	r18, r18
+ 2da:	33 1f       	adc	r19, r19
+ 2dc:	21 60       	ori	r18, 0x01	; 1
+ 2de:	30 93 ab 01 	sts	0x01AB, r19	; 0x8001ab <td+0x1>
+ 2e2:	20 93 aa 01 	sts	0x01AA, r18	; 0x8001aa <td>
+		else
+			t = (t<<1)|(0x01);
+	}
+	
+	//temperatura decimal
+	for(i=0; i<8; i++){
+ 2e6:	20 91 bf 01 	lds	r18, 0x01BF	; 0x8001bf <i>
+ 2ea:	30 91 c0 01 	lds	r19, 0x01C0	; 0x8001c0 <i+0x1>
+ 2ee:	2f 5f       	subi	r18, 0xFF	; 255
+ 2f0:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2f2:	30 93 c0 01 	sts	0x01C0, r19	; 0x8001c0 <i+0x1>
+ 2f6:	20 93 bf 01 	sts	0x01BF, r18	; 0x8001bf <i>
+ 2fa:	20 91 bf 01 	lds	r18, 0x01BF	; 0x8001bf <i>
+ 2fe:	30 91 c0 01 	lds	r19, 0x01C0	; 0x8001c0 <i+0x1>
+ 302:	28 30       	cpi	r18, 0x08	; 8
+ 304:	31 05       	cpc	r19, r1
+ 306:	3c f2       	brlt	.-114    	; 0x296 <dht11_iniciaryleerdato+0x1f0>
+		else
+			td = (td<<1)|(0x01);
+	}
+	
+	//sumcheck
+	for(i=0; i<8; i++){
+ 308:	10 92 c0 01 	sts	0x01C0, r1	; 0x8001c0 <i+0x1>
+ 30c:	10 92 bf 01 	sts	0x01BF, r1	; 0x8001bf <i>
+ 310:	32 c0       	rjmp	.+100    	; 0x376 <dht11_iniciaryleerdato+0x2d0>
+		cant=0;
+		while(PINC & (1<<PORTC0));
+ 312:	30 99       	sbic	0x06, 0	; 6
+ 314:	fe cf       	rjmp	.-4      	; 0x312 <dht11_iniciaryleerdato+0x26c>
+		while((PINC & (1<<PORTC0))==0);
+ 316:	30 9b       	sbis	0x06, 0	; 6
+ 318:	fe cf       	rjmp	.-4      	; 0x316 <dht11_iniciaryleerdato+0x270>
+ 31a:	20 e0       	ldi	r18, 0x00	; 0
+ 31c:	30 e0       	ldi	r19, 0x00	; 0
+ 31e:	06 c0       	rjmp	.+12     	; 0x32c <dht11_iniciaryleerdato+0x286>
+ 320:	e5 e0       	ldi	r30, 0x05	; 5
+ 322:	ea 95       	dec	r30
+ 324:	f1 f7       	brne	.-4      	; 0x322 <dht11_iniciaryleerdato+0x27c>
+ 326:	00 00       	nop
+		while(PINC & (1<<PORTC0)){
+			_delay_us(1);
+			cant++;
+ 328:	2f 5f       	subi	r18, 0xFF	; 255
+ 32a:	3f 4f       	sbci	r19, 0xFF	; 255
+	//sumcheck
+	for(i=0; i<8; i++){
+		cant=0;
+		while(PINC & (1<<PORTC0));
+		while((PINC & (1<<PORTC0))==0);
+		while(PINC & (1<<PORTC0)){
+ 32c:	30 99       	sbic	0x06, 0	; 6
+ 32e:	f8 cf       	rjmp	.-16     	; 0x320 <dht11_iniciaryleerdato+0x27a>
+			_delay_us(1);
+			cant++;
+		}
+		if(cant < 29)
+ 330:	2d 31       	cpi	r18, 0x1D	; 29
+ 332:	31 05       	cpc	r19, r1
+ 334:	5c f4       	brge	.+22     	; 0x34c <dht11_iniciaryleerdato+0x2a6>
+			sumcheck = (sumcheck<<1);
+ 336:	20 91 a8 01 	lds	r18, 0x01A8	; 0x8001a8 <__data_end>
+ 33a:	30 91 a9 01 	lds	r19, 0x01A9	; 0x8001a9 <__data_end+0x1>
+ 33e:	22 0f       	add	r18, r18
+ 340:	33 1f       	adc	r19, r19
+ 342:	30 93 a9 01 	sts	0x01A9, r19	; 0x8001a9 <__data_end+0x1>
+ 346:	20 93 a8 01 	sts	0x01A8, r18	; 0x8001a8 <__data_end>
+ 34a:	0b c0       	rjmp	.+22     	; 0x362 <dht11_iniciaryleerdato+0x2bc>
+		else
+			sumcheck = (sumcheck<<1)|(0x01);
+ 34c:	20 91 a8 01 	lds	r18, 0x01A8	; 0x8001a8 <__data_end>
+ 350:	30 91 a9 01 	lds	r19, 0x01A9	; 0x8001a9 <__data_end+0x1>
+ 354:	22 0f       	add	r18, r18
+ 356:	33 1f       	adc	r19, r19
+ 358:	21 60       	ori	r18, 0x01	; 1
+ 35a:	30 93 a9 01 	sts	0x01A9, r19	; 0x8001a9 <__data_end+0x1>
+ 35e:	20 93 a8 01 	sts	0x01A8, r18	; 0x8001a8 <__data_end>
+		else
+			td = (td<<1)|(0x01);
+	}
+	
+	//sumcheck
+	for(i=0; i<8; i++){
+ 362:	20 91 bf 01 	lds	r18, 0x01BF	; 0x8001bf <i>
+ 366:	30 91 c0 01 	lds	r19, 0x01C0	; 0x8001c0 <i+0x1>
+ 36a:	2f 5f       	subi	r18, 0xFF	; 255
+ 36c:	3f 4f       	sbci	r19, 0xFF	; 255
+ 36e:	30 93 c0 01 	sts	0x01C0, r19	; 0x8001c0 <i+0x1>
+ 372:	20 93 bf 01 	sts	0x01BF, r18	; 0x8001bf <i>
+ 376:	20 91 bf 01 	lds	r18, 0x01BF	; 0x8001bf <i>
+ 37a:	30 91 c0 01 	lds	r19, 0x01C0	; 0x8001c0 <i+0x1>
+ 37e:	28 30       	cpi	r18, 0x08	; 8
+ 380:	31 05       	cpc	r19, r1
+ 382:	3c f2       	brlt	.-114    	; 0x312 <dht11_iniciaryleerdato+0x26c>
+			sumcheck = (sumcheck<<1);
+		else
+			sumcheck = (sumcheck<<1)|(0x01);
+	}
+	
+	*temp = t; 
+ 384:	20 91 ac 01 	lds	r18, 0x01AC	; 0x8001ac <t>
+ 388:	30 91 ad 01 	lds	r19, 0x01AD	; 0x8001ad <t+0x1>
+ 38c:	fc 01       	movw	r30, r24
+ 38e:	31 83       	std	Z+1, r19	; 0x01
+ 390:	20 83       	st	Z, r18
+	*tempD = td; 
+ 392:	80 91 aa 01 	lds	r24, 0x01AA	; 0x8001aa <td>
+ 396:	90 91 ab 01 	lds	r25, 0x01AB	; 0x8001ab <td+0x1>
+ 39a:	fb 01       	movw	r30, r22
+ 39c:	91 83       	std	Z+1, r25	; 0x01
+ 39e:	80 83       	st	Z, r24
+	*hum = h;
+ 3a0:	80 91 b0 01 	lds	r24, 0x01B0	; 0x8001b0 <h>
+ 3a4:	90 91 b1 01 	lds	r25, 0x01B1	; 0x8001b1 <h+0x1>
+ 3a8:	fa 01       	movw	r30, r20
+ 3aa:	91 83       	std	Z+1, r25	; 0x01
+ 3ac:	80 83       	st	Z, r24
+ 3ae:	08 95       	ret
+
+000003b0 <main>:
+	//modo 1(ON): muestra temperatura y humedad cada un segundo
+	//modo 2(OFF): frena la transmision de humedad y temperatura
+	//modo 3(RST): transmite el menu y frena la transmision de datos
+	//modo 4: indica comando no valido 
+	
+	SerialPort_Init(BR9600);
+ 3b0:	87 e6       	ldi	r24, 0x67	; 103
+ 3b2:	0e 94 3c 03 	call	0x678	; 0x678 <SerialPort_Init>
+	SerialPort_TX_Enable();            // Activo el Transmisor del Puerto Serie
+ 3b6:	0e 94 44 03 	call	0x688	; 0x688 <SerialPort_TX_Enable>
+	SerialPort_RX_Enable();            // Activo el Receptor del Puerto Serie
+ 3ba:	0e 94 56 03 	call	0x6ac	; 0x6ac <SerialPort_RX_Enable>
+	SerialPort_RX_Interrupt_Enable();    // Activo Interrupción de recepcion.
+ 3be:	0e 94 5c 03 	call	0x6b8	; 0x6b8 <SerialPort_RX_Interrupt_Enable>
+	sei();                                // Activo la mascara global de interrupciones (Bit I del SREG en 1)
+ 3c2:	78 94       	sei
+	
+	//Configuramos por defecto en modo 3
+	modo=3;
+ 3c4:	83 e0       	ldi	r24, 0x03	; 3
+ 3c6:	90 e0       	ldi	r25, 0x00	; 0
+ 3c8:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 3cc:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+	haydato=1;
+ 3d0:	81 e0       	ldi	r24, 0x01	; 1
+ 3d2:	90 e0       	ldi	r25, 0x00	; 0
+ 3d4:	90 93 bc 01 	sts	0x01BC, r25	; 0x8001bc <haydato+0x1>
+ 3d8:	80 93 bb 01 	sts	0x01BB, r24	; 0x8001bb <haydato>
+	SerialPort_TX_Interrupt_Enable();
+ 3dc:	0e 94 4a 03 	call	0x694	; 0x694 <SerialPort_TX_Interrupt_Enable>
+	
+	while (1){
+		if (nuevoComando){
+ 3e0:	80 91 bd 01 	lds	r24, 0x01BD	; 0x8001bd <nuevoComando>
+ 3e4:	88 23       	and	r24, r24
+ 3e6:	29 f1       	breq	.+74     	; 0x432 <__EEPROM_REGION_LENGTH__+0x32>
+			Tareas_Main_leercomando(comando);
+ 3e8:	83 ec       	ldi	r24, 0xC3	; 195
+ 3ea:	91 e0       	ldi	r25, 0x01	; 1
+ 3ec:	0e 94 a1 03 	call	0x742	; 0x742 <Tareas_Main_leercomando>
+			if(modo==3){
+ 3f0:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 3f4:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 3f8:	03 97       	sbiw	r24, 0x03	; 3
+ 3fa:	49 f4       	brne	.+18     	; 0x40e <__EEPROM_REGION_LENGTH__+0xe>
+				haydato=1;
+ 3fc:	81 e0       	ldi	r24, 0x01	; 1
+ 3fe:	90 e0       	ldi	r25, 0x00	; 0
+ 400:	90 93 bc 01 	sts	0x01BC, r25	; 0x8001bc <haydato+0x1>
+ 404:	80 93 bb 01 	sts	0x01BB, r24	; 0x8001bb <haydato>
+				SerialPort_TX_Interrupt_Enable();
+ 408:	0e 94 4a 03 	call	0x694	; 0x694 <SerialPort_TX_Interrupt_Enable>
+ 40c:	0e c0       	rjmp	.+28     	; 0x42a <__EEPROM_REGION_LENGTH__+0x2a>
+			}
+			else if(modo==4){
+ 40e:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 412:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 416:	04 97       	sbiw	r24, 0x04	; 4
+ 418:	41 f4       	brne	.+16     	; 0x42a <__EEPROM_REGION_LENGTH__+0x2a>
+				haydato=1;
+ 41a:	81 e0       	ldi	r24, 0x01	; 1
+ 41c:	90 e0       	ldi	r25, 0x00	; 0
+ 41e:	90 93 bc 01 	sts	0x01BC, r25	; 0x8001bc <haydato+0x1>
+ 422:	80 93 bb 01 	sts	0x01BB, r24	; 0x8001bb <haydato>
+				SerialPort_TX_Interrupt_Enable();		
+ 426:	0e 94 4a 03 	call	0x694	; 0x694 <SerialPort_TX_Interrupt_Enable>
+			}
+			nuevoComando=0;
+ 42a:	10 92 bd 01 	sts	0x01BD, r1	; 0x8001bd <nuevoComando>
+			cant=0;
+ 42e:	10 92 ba 01 	sts	0x01BA, r1	; 0x8001ba <cant>
+		}
+		if(modo==1){
+ 432:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 436:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 43a:	01 97       	sbiw	r24, 0x01	; 1
+ 43c:	89 f6       	brne	.-94     	; 0x3e0 <main+0x30>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 43e:	2f ef       	ldi	r18, 0xFF	; 255
+ 440:	85 eb       	ldi	r24, 0xB5	; 181
+ 442:	95 e3       	ldi	r25, 0x35	; 53
+ 444:	21 50       	subi	r18, 0x01	; 1
+ 446:	80 40       	sbci	r24, 0x00	; 0
+ 448:	90 40       	sbci	r25, 0x00	; 0
+ 44a:	e1 f7       	brne	.-8      	; 0x444 <__EEPROM_REGION_LENGTH__+0x44>
+ 44c:	00 c0       	rjmp	.+0      	; 0x44e <__EEPROM_REGION_LENGTH__+0x4e>
+ 44e:	00 00       	nop
+			_delay_ms(1100);
+			Tareas_Main_Tarea1();
+ 450:	0e 94 68 03 	call	0x6d0	; 0x6d0 <Tareas_Main_Tarea1>
+			haydato=1;
+ 454:	81 e0       	ldi	r24, 0x01	; 1
+ 456:	90 e0       	ldi	r25, 0x00	; 0
+ 458:	90 93 bc 01 	sts	0x01BC, r25	; 0x8001bc <haydato+0x1>
+ 45c:	80 93 bb 01 	sts	0x01BB, r24	; 0x8001bb <haydato>
+			SerialPort_TX_Interrupt_Enable();
+ 460:	0e 94 4a 03 	call	0x694	; 0x694 <SerialPort_TX_Interrupt_Enable>
+ 464:	bd cf       	rjmp	.-134    	; 0x3e0 <main+0x30>
+
+00000466 <__vector_18>:
+		}
+	}
+}
+
+ISR(USART_RX_vect){
+ 466:	1f 92       	push	r1
+ 468:	0f 92       	push	r0
+ 46a:	0f b6       	in	r0, 0x3f	; 63
+ 46c:	0f 92       	push	r0
+ 46e:	11 24       	eor	r1, r1
+ 470:	2f 93       	push	r18
+ 472:	3f 93       	push	r19
+ 474:	4f 93       	push	r20
+ 476:	5f 93       	push	r21
+ 478:	6f 93       	push	r22
+ 47a:	7f 93       	push	r23
+ 47c:	8f 93       	push	r24
+ 47e:	9f 93       	push	r25
+ 480:	af 93       	push	r26
+ 482:	bf 93       	push	r27
+ 484:	ef 93       	push	r30
+ 486:	ff 93       	push	r31
+	SerialPort_TX_Interrupt_Disable();
+ 488:	0e 94 50 03 	call	0x6a0	; 0x6a0 <SerialPort_TX_Interrupt_Disable>
+	if(cant==0){
+ 48c:	80 91 ba 01 	lds	r24, 0x01BA	; 0x8001ba <cant>
+ 490:	81 11       	cpse	r24, r1
+ 492:	0e c0       	rjmp	.+28     	; 0x4b0 <__vector_18+0x4a>
+		modoAnt=modo;
+ 494:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 498:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 49c:	90 93 c2 01 	sts	0x01C2, r25	; 0x8001c2 <modoAnt+0x1>
+ 4a0:	80 93 c1 01 	sts	0x01C1, r24	; 0x8001c1 <modoAnt>
+		modo=2;
+ 4a4:	82 e0       	ldi	r24, 0x02	; 2
+ 4a6:	90 e0       	ldi	r25, 0x00	; 0
+ 4a8:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 4ac:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+	}
+	RX_Buffer=SerialPort_Recive_Data();
+ 4b0:	0e 94 65 03 	call	0x6ca	; 0x6ca <SerialPort_Recive_Data>
+ 4b4:	80 93 be 01 	sts	0x01BE, r24	; 0x8001be <RX_Buffer>
+	if(RX_Buffer!='\r'){
+ 4b8:	80 91 be 01 	lds	r24, 0x01BE	; 0x8001be <RX_Buffer>
+ 4bc:	8d 30       	cpi	r24, 0x0D	; 13
+ 4be:	71 f0       	breq	.+28     	; 0x4dc <__vector_18+0x76>
+		comando[cant]=RX_Buffer;
+ 4c0:	e0 91 ba 01 	lds	r30, 0x01BA	; 0x8001ba <cant>
+ 4c4:	f0 e0       	ldi	r31, 0x00	; 0
+ 4c6:	80 91 be 01 	lds	r24, 0x01BE	; 0x8001be <RX_Buffer>
+ 4ca:	ed 53       	subi	r30, 0x3D	; 61
+ 4cc:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4ce:	80 83       	st	Z, r24
+		cant++;
+ 4d0:	80 91 ba 01 	lds	r24, 0x01BA	; 0x8001ba <cant>
+ 4d4:	8f 5f       	subi	r24, 0xFF	; 255
+ 4d6:	80 93 ba 01 	sts	0x01BA, r24	; 0x8001ba <cant>
+ 4da:	12 c0       	rjmp	.+36     	; 0x500 <__vector_18+0x9a>
+	}else{
+		comando[cant]='\n';
+ 4dc:	e0 91 ba 01 	lds	r30, 0x01BA	; 0x8001ba <cant>
+ 4e0:	f0 e0       	ldi	r31, 0x00	; 0
+ 4e2:	ed 53       	subi	r30, 0x3D	; 61
+ 4e4:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4e6:	8a e0       	ldi	r24, 0x0A	; 10
+ 4e8:	80 83       	st	Z, r24
+		nuevoComando=1;
+ 4ea:	81 e0       	ldi	r24, 0x01	; 1
+ 4ec:	80 93 bd 01 	sts	0x01BD, r24	; 0x8001bd <nuevoComando>
+		modo=modoAnt;
+ 4f0:	80 91 c1 01 	lds	r24, 0x01C1	; 0x8001c1 <modoAnt>
+ 4f4:	90 91 c2 01 	lds	r25, 0x01C2	; 0x8001c2 <modoAnt+0x1>
+ 4f8:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 4fc:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+	}
+}
+ 500:	ff 91       	pop	r31
+ 502:	ef 91       	pop	r30
+ 504:	bf 91       	pop	r27
+ 506:	af 91       	pop	r26
+ 508:	9f 91       	pop	r25
+ 50a:	8f 91       	pop	r24
+ 50c:	7f 91       	pop	r23
+ 50e:	6f 91       	pop	r22
+ 510:	5f 91       	pop	r21
+ 512:	4f 91       	pop	r20
+ 514:	3f 91       	pop	r19
+ 516:	2f 91       	pop	r18
+ 518:	0f 90       	pop	r0
+ 51a:	0f be       	out	0x3f, r0	; 63
+ 51c:	0f 90       	pop	r0
+ 51e:	1f 90       	pop	r1
+ 520:	18 95       	reti
+
+00000522 <__vector_19>:
+
+ISR(USART_UDRE_vect){
+ 522:	1f 92       	push	r1
+ 524:	0f 92       	push	r0
+ 526:	0f b6       	in	r0, 0x3f	; 63
+ 528:	0f 92       	push	r0
+ 52a:	11 24       	eor	r1, r1
+ 52c:	2f 93       	push	r18
+ 52e:	3f 93       	push	r19
+ 530:	4f 93       	push	r20
+ 532:	5f 93       	push	r21
+ 534:	6f 93       	push	r22
+ 536:	7f 93       	push	r23
+ 538:	8f 93       	push	r24
+ 53a:	9f 93       	push	r25
+ 53c:	af 93       	push	r26
+ 53e:	bf 93       	push	r27
+ 540:	ef 93       	push	r30
+ 542:	ff 93       	push	r31
+	if(haydato){
+ 544:	80 91 bb 01 	lds	r24, 0x01BB	; 0x8001bb <haydato>
+ 548:	90 91 bc 01 	lds	r25, 0x01BC	; 0x8001bc <haydato+0x1>
+ 54c:	89 2b       	or	r24, r25
+ 54e:	09 f4       	brne	.+2      	; 0x552 <__vector_19+0x30>
+ 550:	82 c0       	rjmp	.+260    	; 0x656 <__vector_19+0x134>
+		if(modo==1){
+ 552:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 556:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 55a:	01 97       	sbiw	r24, 0x01	; 1
+ 55c:	19 f5       	brne	.+70     	; 0x5a4 <__vector_19+0x82>
+			static int i=0;
+			SerialPort_Send_Data(Buffer[i]);
+ 55e:	e0 91 b6 01 	lds	r30, 0x01B6	; 0x8001b6 <i.1801>
+ 562:	f0 91 b7 01 	lds	r31, 0x01B7	; 0x8001b7 <i.1801+0x1>
+ 566:	e0 50       	subi	r30, 0x00	; 0
+ 568:	ff 4f       	sbci	r31, 0xFF	; 255
+ 56a:	80 81       	ld	r24, Z
+ 56c:	0e 94 62 03 	call	0x6c4	; 0x6c4 <SerialPort_Send_Data>
+			i++;
+ 570:	80 91 b6 01 	lds	r24, 0x01B6	; 0x8001b6 <i.1801>
+ 574:	90 91 b7 01 	lds	r25, 0x01B7	; 0x8001b7 <i.1801+0x1>
+ 578:	01 96       	adiw	r24, 0x01	; 1
+ 57a:	90 93 b7 01 	sts	0x01B7, r25	; 0x8001b7 <i.1801+0x1>
+ 57e:	80 93 b6 01 	sts	0x01B6, r24	; 0x8001b6 <i.1801>
+			if(Buffer[i]=='\0'){
+ 582:	fc 01       	movw	r30, r24
+ 584:	e0 50       	subi	r30, 0x00	; 0
+ 586:	ff 4f       	sbci	r31, 0xFF	; 255
+ 588:	80 81       	ld	r24, Z
+ 58a:	81 11       	cpse	r24, r1
+ 58c:	64 c0       	rjmp	.+200    	; 0x656 <__vector_19+0x134>
+				i=0;
+ 58e:	10 92 b7 01 	sts	0x01B7, r1	; 0x8001b7 <i.1801+0x1>
+ 592:	10 92 b6 01 	sts	0x01B6, r1	; 0x8001b6 <i.1801>
+				haydato=0;
+ 596:	10 92 bc 01 	sts	0x01BC, r1	; 0x8001bc <haydato+0x1>
+ 59a:	10 92 bb 01 	sts	0x01BB, r1	; 0x8001bb <haydato>
+				SerialPort_TX_Interrupt_Disable();
+ 59e:	0e 94 50 03 	call	0x6a0	; 0x6a0 <SerialPort_TX_Interrupt_Disable>
+ 5a2:	59 c0       	rjmp	.+178    	; 0x656 <__vector_19+0x134>
+			}
+		}else if(modo==3){
+ 5a4:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 5a8:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 5ac:	03 97       	sbiw	r24, 0x03	; 3
+ 5ae:	19 f5       	brne	.+70     	; 0x5f6 <__vector_19+0xd4>
+			static int j=0;
+			SerialPort_Send_Data(msg1[j]);
+ 5b0:	e0 91 b4 01 	lds	r30, 0x01B4	; 0x8001b4 <j.1802>
+ 5b4:	f0 91 b5 01 	lds	r31, 0x01B5	; 0x8001b5 <j.1802+0x1>
+ 5b8:	e2 5c       	subi	r30, 0xC2	; 194
+ 5ba:	fe 4f       	sbci	r31, 0xFE	; 254
+ 5bc:	80 81       	ld	r24, Z
+ 5be:	0e 94 62 03 	call	0x6c4	; 0x6c4 <SerialPort_Send_Data>
+			j++;
+ 5c2:	80 91 b4 01 	lds	r24, 0x01B4	; 0x8001b4 <j.1802>
+ 5c6:	90 91 b5 01 	lds	r25, 0x01B5	; 0x8001b5 <j.1802+0x1>
+ 5ca:	01 96       	adiw	r24, 0x01	; 1
+ 5cc:	90 93 b5 01 	sts	0x01B5, r25	; 0x8001b5 <j.1802+0x1>
+ 5d0:	80 93 b4 01 	sts	0x01B4, r24	; 0x8001b4 <j.1802>
+			if(msg1[j]=='\0'){
+ 5d4:	fc 01       	movw	r30, r24
+ 5d6:	e2 5c       	subi	r30, 0xC2	; 194
+ 5d8:	fe 4f       	sbci	r31, 0xFE	; 254
+ 5da:	80 81       	ld	r24, Z
+ 5dc:	81 11       	cpse	r24, r1
+ 5de:	3b c0       	rjmp	.+118    	; 0x656 <__vector_19+0x134>
+				j=0;
+ 5e0:	10 92 b5 01 	sts	0x01B5, r1	; 0x8001b5 <j.1802+0x1>
+ 5e4:	10 92 b4 01 	sts	0x01B4, r1	; 0x8001b4 <j.1802>
+				haydato=0;
+ 5e8:	10 92 bc 01 	sts	0x01BC, r1	; 0x8001bc <haydato+0x1>
+ 5ec:	10 92 bb 01 	sts	0x01BB, r1	; 0x8001bb <haydato>
+				SerialPort_TX_Interrupt_Disable();
+ 5f0:	0e 94 50 03 	call	0x6a0	; 0x6a0 <SerialPort_TX_Interrupt_Disable>
+ 5f4:	30 c0       	rjmp	.+96     	; 0x656 <__vector_19+0x134>
+			}				
+		}else if(modo==4){
+ 5f6:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 5fa:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 5fe:	04 97       	sbiw	r24, 0x04	; 4
+ 600:	51 f5       	brne	.+84     	; 0x656 <__vector_19+0x134>
+			static int z=0;
+			SerialPort_Send_Data(msg2[z]);
+ 602:	e0 91 b2 01 	lds	r30, 0x01B2	; 0x8001b2 <z.1803>
+ 606:	f0 91 b3 01 	lds	r31, 0x01B3	; 0x8001b3 <z.1803+0x1>
+ 60a:	e7 5d       	subi	r30, 0xD7	; 215
+ 60c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 60e:	80 81       	ld	r24, Z
+ 610:	0e 94 62 03 	call	0x6c4	; 0x6c4 <SerialPort_Send_Data>
+			z++;
+ 614:	80 91 b2 01 	lds	r24, 0x01B2	; 0x8001b2 <z.1803>
+ 618:	90 91 b3 01 	lds	r25, 0x01B3	; 0x8001b3 <z.1803+0x1>
+ 61c:	01 96       	adiw	r24, 0x01	; 1
+ 61e:	90 93 b3 01 	sts	0x01B3, r25	; 0x8001b3 <z.1803+0x1>
+ 622:	80 93 b2 01 	sts	0x01B2, r24	; 0x8001b2 <z.1803>
+			if(msg2[z]=='\0'){
+ 626:	fc 01       	movw	r30, r24
+ 628:	e7 5d       	subi	r30, 0xD7	; 215
+ 62a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 62c:	80 81       	ld	r24, Z
+ 62e:	81 11       	cpse	r24, r1
+ 630:	12 c0       	rjmp	.+36     	; 0x656 <__vector_19+0x134>
+				z=0;
+ 632:	10 92 b3 01 	sts	0x01B3, r1	; 0x8001b3 <z.1803+0x1>
+ 636:	10 92 b2 01 	sts	0x01B2, r1	; 0x8001b2 <z.1803>
+				haydato=0;
+ 63a:	10 92 bc 01 	sts	0x01BC, r1	; 0x8001bc <haydato+0x1>
+ 63e:	10 92 bb 01 	sts	0x01BB, r1	; 0x8001bb <haydato>
+				SerialPort_TX_Interrupt_Disable();
+ 642:	0e 94 50 03 	call	0x6a0	; 0x6a0 <SerialPort_TX_Interrupt_Disable>
+				modo=modoAnt;
+ 646:	80 91 c1 01 	lds	r24, 0x01C1	; 0x8001c1 <modoAnt>
+ 64a:	90 91 c2 01 	lds	r25, 0x01C2	; 0x8001c2 <modoAnt+0x1>
+ 64e:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 652:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+			}			
+		}
+	}
+}
+ 656:	ff 91       	pop	r31
+ 658:	ef 91       	pop	r30
+ 65a:	bf 91       	pop	r27
+ 65c:	af 91       	pop	r26
+ 65e:	9f 91       	pop	r25
+ 660:	8f 91       	pop	r24
+ 662:	7f 91       	pop	r23
+ 664:	6f 91       	pop	r22
+ 666:	5f 91       	pop	r21
+ 668:	4f 91       	pop	r20
+ 66a:	3f 91       	pop	r19
+ 66c:	2f 91       	pop	r18
+ 66e:	0f 90       	pop	r0
+ 670:	0f be       	out	0x3f, r0	; 63
+ 672:	0f 90       	pop	r0
+ 674:	1f 90       	pop	r1
+ 676:	18 95       	reti
+
+00000678 <SerialPort_Init>:
+ 678:	10 92 c1 00 	sts	0x00C1, r1	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7f80c1>
+ 67c:	96 e0       	ldi	r25, 0x06	; 6
+ 67e:	90 93 c2 00 	sts	0x00C2, r25	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7f80c2>
+ 682:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+ 686:	08 95       	ret
+
+00000688 <SerialPort_TX_Enable>:
+ 688:	e1 ec       	ldi	r30, 0xC1	; 193
+ 68a:	f0 e0       	ldi	r31, 0x00	; 0
+ 68c:	80 81       	ld	r24, Z
+ 68e:	88 60       	ori	r24, 0x08	; 8
+ 690:	80 83       	st	Z, r24
+ 692:	08 95       	ret
+
+00000694 <SerialPort_TX_Interrupt_Enable>:
+ 694:	e1 ec       	ldi	r30, 0xC1	; 193
+ 696:	f0 e0       	ldi	r31, 0x00	; 0
+ 698:	80 81       	ld	r24, Z
+ 69a:	80 62       	ori	r24, 0x20	; 32
+ 69c:	80 83       	st	Z, r24
+ 69e:	08 95       	ret
+
+000006a0 <SerialPort_TX_Interrupt_Disable>:
+ 6a0:	e1 ec       	ldi	r30, 0xC1	; 193
+ 6a2:	f0 e0       	ldi	r31, 0x00	; 0
+ 6a4:	80 81       	ld	r24, Z
+ 6a6:	8f 7d       	andi	r24, 0xDF	; 223
+ 6a8:	80 83       	st	Z, r24
+ 6aa:	08 95       	ret
+
+000006ac <SerialPort_RX_Enable>:
+ 6ac:	e1 ec       	ldi	r30, 0xC1	; 193
+ 6ae:	f0 e0       	ldi	r31, 0x00	; 0
+ 6b0:	80 81       	ld	r24, Z
+ 6b2:	80 61       	ori	r24, 0x10	; 16
+ 6b4:	80 83       	st	Z, r24
+ 6b6:	08 95       	ret
+
+000006b8 <SerialPort_RX_Interrupt_Enable>:
+ 6b8:	e1 ec       	ldi	r30, 0xC1	; 193
+ 6ba:	f0 e0       	ldi	r31, 0x00	; 0
+ 6bc:	80 81       	ld	r24, Z
+ 6be:	80 68       	ori	r24, 0x80	; 128
+ 6c0:	80 83       	st	Z, r24
+ 6c2:	08 95       	ret
+
+000006c4 <SerialPort_Send_Data>:
+ 6c4:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+ 6c8:	08 95       	ret
+
+000006ca <SerialPort_Recive_Data>:
+ 6ca:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+ 6ce:	08 95       	ret
+
+000006d0 <Tareas_Main_Tarea1>:
+extern int haydato;
+extern int modo;
+extern int modoAnt;
+
+
+void Tareas_Main_Tarea1(){
+ 6d0:	cf 93       	push	r28
+ 6d2:	df 93       	push	r29
+ 6d4:	00 d0       	rcall	.+0      	; 0x6d6 <Tareas_Main_Tarea1+0x6>
+ 6d6:	00 d0       	rcall	.+0      	; 0x6d8 <Tareas_Main_Tarea1+0x8>
+ 6d8:	00 d0       	rcall	.+0      	; 0x6da <Tareas_Main_Tarea1+0xa>
+ 6da:	cd b7       	in	r28, 0x3d	; 61
+ 6dc:	de b7       	in	r29, 0x3e	; 62
+	int temp,temp_dec,hum;
+	dht11_iniciaryleerdato(&temp, &temp_dec, &hum);
+ 6de:	ae 01       	movw	r20, r28
+ 6e0:	4b 5f       	subi	r20, 0xFB	; 251
+ 6e2:	5f 4f       	sbci	r21, 0xFF	; 255
+ 6e4:	be 01       	movw	r22, r28
+ 6e6:	6d 5f       	subi	r22, 0xFD	; 253
+ 6e8:	7f 4f       	sbci	r23, 0xFF	; 255
+ 6ea:	ce 01       	movw	r24, r28
+ 6ec:	01 96       	adiw	r24, 0x01	; 1
+ 6ee:	0e 94 53 00 	call	0xa6	; 0xa6 <dht11_iniciaryleerdato>
+	Buffer[13]='0'+temp/10;
+ 6f2:	89 81       	ldd	r24, Y+1	; 0x01
+ 6f4:	9a 81       	ldd	r25, Y+2	; 0x02
+ 6f6:	2a e0       	ldi	r18, 0x0A	; 10
+ 6f8:	30 e0       	ldi	r19, 0x00	; 0
+ 6fa:	b9 01       	movw	r22, r18
+ 6fc:	0e 94 43 04 	call	0x886	; 0x886 <__divmodhi4>
+ 700:	e0 e0       	ldi	r30, 0x00	; 0
+ 702:	f1 e0       	ldi	r31, 0x01	; 1
+ 704:	60 5d       	subi	r22, 0xD0	; 208
+ 706:	65 87       	std	Z+13, r22	; 0x0d
+	Buffer[14]='0'+ temp%10;
+ 708:	80 5d       	subi	r24, 0xD0	; 208
+ 70a:	86 87       	std	Z+14, r24	; 0x0e
+	
+	Buffer[16]='0'+temp_dec/10;
+ 70c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 70e:	9c 81       	ldd	r25, Y+4	; 0x04
+ 710:	b9 01       	movw	r22, r18
+ 712:	0e 94 43 04 	call	0x886	; 0x886 <__divmodhi4>
+ 716:	60 5d       	subi	r22, 0xD0	; 208
+ 718:	60 8b       	std	Z+16, r22	; 0x10
+	Buffer[17]='0'+ temp_dec%10;
+ 71a:	80 5d       	subi	r24, 0xD0	; 208
+ 71c:	81 8b       	std	Z+17, r24	; 0x11
+	
+	Buffer[33]='0'+hum/10;
+ 71e:	8d 81       	ldd	r24, Y+5	; 0x05
+ 720:	9e 81       	ldd	r25, Y+6	; 0x06
+ 722:	b9 01       	movw	r22, r18
+ 724:	0e 94 43 04 	call	0x886	; 0x886 <__divmodhi4>
+ 728:	60 5d       	subi	r22, 0xD0	; 208
+ 72a:	61 a3       	std	Z+33, r22	; 0x21
+	Buffer[34]='0'+hum%10;
+ 72c:	80 5d       	subi	r24, 0xD0	; 208
+ 72e:	82 a3       	std	Z+34, r24	; 0x22
+}
+ 730:	26 96       	adiw	r28, 0x06	; 6
+ 732:	0f b6       	in	r0, 0x3f	; 63
+ 734:	f8 94       	cli
+ 736:	de bf       	out	0x3e, r29	; 62
+ 738:	0f be       	out	0x3f, r0	; 63
+ 73a:	cd bf       	out	0x3d, r28	; 61
+ 73c:	df 91       	pop	r29
+ 73e:	cf 91       	pop	r28
+ 740:	08 95       	ret
+
+00000742 <Tareas_Main_leercomando>:
+
+void Tareas_Main_leercomando(char *s){
+	if (s[0]=='O'){
+ 742:	fc 01       	movw	r30, r24
+ 744:	20 81       	ld	r18, Z
+ 746:	2f 34       	cpi	r18, 0x4F	; 79
+ 748:	09 f0       	breq	.+2      	; 0x74c <Tareas_Main_leercomando+0xa>
+ 74a:	5d c0       	rjmp	.+186    	; 0x806 <__DATA_REGION_LENGTH__+0x6>
+		if (s[1]=='N' || s[1]=='F'){
+ 74c:	21 81       	ldd	r18, Z+1	; 0x01
+ 74e:	2e 34       	cpi	r18, 0x4E	; 78
+ 750:	19 f0       	breq	.+6      	; 0x758 <Tareas_Main_leercomando+0x16>
+ 752:	26 34       	cpi	r18, 0x46	; 70
+ 754:	09 f0       	breq	.+2      	; 0x758 <Tareas_Main_leercomando+0x16>
+ 756:	48 c0       	rjmp	.+144    	; 0x7e8 <Tareas_Main_leercomando+0xa6>
+			if (s[1]=='N'){
+ 758:	2e 34       	cpi	r18, 0x4E	; 78
+ 75a:	d1 f4       	brne	.+52     	; 0x790 <Tareas_Main_leercomando+0x4e>
+				if (s[2]=='\n'){
+ 75c:	fc 01       	movw	r30, r24
+ 75e:	82 81       	ldd	r24, Z+2	; 0x02
+ 760:	8a 30       	cpi	r24, 0x0A	; 10
+ 762:	39 f4       	brne	.+14     	; 0x772 <Tareas_Main_leercomando+0x30>
+					modo=1;
+ 764:	81 e0       	ldi	r24, 0x01	; 1
+ 766:	90 e0       	ldi	r25, 0x00	; 0
+ 768:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 76c:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+ 770:	08 95       	ret
+				}
+				else{
+					modoAnt=modo;
+ 772:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 776:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 77a:	90 93 c2 01 	sts	0x01C2, r25	; 0x8001c2 <modoAnt+0x1>
+ 77e:	80 93 c1 01 	sts	0x01C1, r24	; 0x8001c1 <modoAnt>
+					modo=4;
+ 782:	84 e0       	ldi	r24, 0x04	; 4
+ 784:	90 e0       	ldi	r25, 0x00	; 0
+ 786:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 78a:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+ 78e:	08 95       	ret
+				}
+			}
+			else{
+				if (s[2]=='F'){
+ 790:	fc 01       	movw	r30, r24
+ 792:	22 81       	ldd	r18, Z+2	; 0x02
+ 794:	26 34       	cpi	r18, 0x46	; 70
+ 796:	c9 f4       	brne	.+50     	; 0x7ca <Tareas_Main_leercomando+0x88>
+					if (s[3]=='\n'){
+ 798:	83 81       	ldd	r24, Z+3	; 0x03
+ 79a:	8a 30       	cpi	r24, 0x0A	; 10
+ 79c:	39 f4       	brne	.+14     	; 0x7ac <Tareas_Main_leercomando+0x6a>
+						modo=2;
+ 79e:	82 e0       	ldi	r24, 0x02	; 2
+ 7a0:	90 e0       	ldi	r25, 0x00	; 0
+ 7a2:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 7a6:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+ 7aa:	08 95       	ret
+					}
+					else{
+						modoAnt=modo;
+ 7ac:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 7b0:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 7b4:	90 93 c2 01 	sts	0x01C2, r25	; 0x8001c2 <modoAnt+0x1>
+ 7b8:	80 93 c1 01 	sts	0x01C1, r24	; 0x8001c1 <modoAnt>
+						modo=4;
+ 7bc:	84 e0       	ldi	r24, 0x04	; 4
+ 7be:	90 e0       	ldi	r25, 0x00	; 0
+ 7c0:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 7c4:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+ 7c8:	08 95       	ret
+					}
+				}
+				else{
+					modoAnt=modo;
+ 7ca:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 7ce:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 7d2:	90 93 c2 01 	sts	0x01C2, r25	; 0x8001c2 <modoAnt+0x1>
+ 7d6:	80 93 c1 01 	sts	0x01C1, r24	; 0x8001c1 <modoAnt>
+					modo=4;
+ 7da:	84 e0       	ldi	r24, 0x04	; 4
+ 7dc:	90 e0       	ldi	r25, 0x00	; 0
+ 7de:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 7e2:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+ 7e6:	08 95       	ret
+				}
+			}
+		}
+		else{
+			modoAnt=modo;
+ 7e8:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 7ec:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 7f0:	90 93 c2 01 	sts	0x01C2, r25	; 0x8001c2 <modoAnt+0x1>
+ 7f4:	80 93 c1 01 	sts	0x01C1, r24	; 0x8001c1 <modoAnt>
+			modo=4;
+ 7f8:	84 e0       	ldi	r24, 0x04	; 4
+ 7fa:	90 e0       	ldi	r25, 0x00	; 0
+ 7fc:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 800:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+ 804:	08 95       	ret
+		}
+	}
+	else{
+		if (s[0]=='R'){
+ 806:	22 35       	cpi	r18, 0x52	; 82
+ 808:	79 f5       	brne	.+94     	; 0x868 <__DATA_REGION_LENGTH__+0x68>
+			if (s[1]=='S'){
+ 80a:	fc 01       	movw	r30, r24
+ 80c:	21 81       	ldd	r18, Z+1	; 0x01
+ 80e:	23 35       	cpi	r18, 0x53	; 83
+ 810:	e1 f4       	brne	.+56     	; 0x84a <__DATA_REGION_LENGTH__+0x4a>
+				if (s[2]=='T'){
+ 812:	22 81       	ldd	r18, Z+2	; 0x02
+ 814:	24 35       	cpi	r18, 0x54	; 84
+ 816:	b1 f5       	brne	.+108    	; 0x884 <__DATA_REGION_LENGTH__+0x84>
+					if (s[3]=='\n'){
+ 818:	83 81       	ldd	r24, Z+3	; 0x03
+ 81a:	8a 30       	cpi	r24, 0x0A	; 10
+ 81c:	39 f4       	brne	.+14     	; 0x82c <__DATA_REGION_LENGTH__+0x2c>
+						modo=3;
+ 81e:	83 e0       	ldi	r24, 0x03	; 3
+ 820:	90 e0       	ldi	r25, 0x00	; 0
+ 822:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 826:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+ 82a:	08 95       	ret
+					}
+					else{
+						modoAnt=modo;
+ 82c:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 830:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 834:	90 93 c2 01 	sts	0x01C2, r25	; 0x8001c2 <modoAnt+0x1>
+ 838:	80 93 c1 01 	sts	0x01C1, r24	; 0x8001c1 <modoAnt>
+						modo=4;
+ 83c:	84 e0       	ldi	r24, 0x04	; 4
+ 83e:	90 e0       	ldi	r25, 0x00	; 0
+ 840:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 844:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+ 848:	08 95       	ret
+					}
+				}
+			}
+			else{
+				modoAnt=modo;
+ 84a:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 84e:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 852:	90 93 c2 01 	sts	0x01C2, r25	; 0x8001c2 <modoAnt+0x1>
+ 856:	80 93 c1 01 	sts	0x01C1, r24	; 0x8001c1 <modoAnt>
+				modo=4;
+ 85a:	84 e0       	ldi	r24, 0x04	; 4
+ 85c:	90 e0       	ldi	r25, 0x00	; 0
+ 85e:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 862:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+ 866:	08 95       	ret
+			}
+		}
+		else{
+			modoAnt=modo;
+ 868:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <modo>
+ 86c:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <modo+0x1>
+ 870:	90 93 c2 01 	sts	0x01C2, r25	; 0x8001c2 <modoAnt+0x1>
+ 874:	80 93 c1 01 	sts	0x01C1, r24	; 0x8001c1 <modoAnt>
+			modo=4;
+ 878:	84 e0       	ldi	r24, 0x04	; 4
+ 87a:	90 e0       	ldi	r25, 0x00	; 0
+ 87c:	90 93 b9 01 	sts	0x01B9, r25	; 0x8001b9 <modo+0x1>
+ 880:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <modo>
+ 884:	08 95       	ret
+
+00000886 <__divmodhi4>:
+ 886:	97 fb       	bst	r25, 7
+ 888:	07 2e       	mov	r0, r23
+ 88a:	16 f4       	brtc	.+4      	; 0x890 <__divmodhi4+0xa>
+ 88c:	00 94       	com	r0
+ 88e:	07 d0       	rcall	.+14     	; 0x89e <__divmodhi4_neg1>
+ 890:	77 fd       	sbrc	r23, 7
+ 892:	09 d0       	rcall	.+18     	; 0x8a6 <__divmodhi4_neg2>
+ 894:	0e 94 57 04 	call	0x8ae	; 0x8ae <__udivmodhi4>
+ 898:	07 fc       	sbrc	r0, 7
+ 89a:	05 d0       	rcall	.+10     	; 0x8a6 <__divmodhi4_neg2>
+ 89c:	3e f4       	brtc	.+14     	; 0x8ac <__divmodhi4_exit>
+
+0000089e <__divmodhi4_neg1>:
+ 89e:	90 95       	com	r25
+ 8a0:	81 95       	neg	r24
+ 8a2:	9f 4f       	sbci	r25, 0xFF	; 255
+ 8a4:	08 95       	ret
+
+000008a6 <__divmodhi4_neg2>:
+ 8a6:	70 95       	com	r23
+ 8a8:	61 95       	neg	r22
+ 8aa:	7f 4f       	sbci	r23, 0xFF	; 255
+
+000008ac <__divmodhi4_exit>:
+ 8ac:	08 95       	ret
+
+000008ae <__udivmodhi4>:
+ 8ae:	aa 1b       	sub	r26, r26
+ 8b0:	bb 1b       	sub	r27, r27
+ 8b2:	51 e1       	ldi	r21, 0x11	; 17
+ 8b4:	07 c0       	rjmp	.+14     	; 0x8c4 <__udivmodhi4_ep>
+
+000008b6 <__udivmodhi4_loop>:
+ 8b6:	aa 1f       	adc	r26, r26
+ 8b8:	bb 1f       	adc	r27, r27
+ 8ba:	a6 17       	cp	r26, r22
+ 8bc:	b7 07       	cpc	r27, r23
+ 8be:	10 f0       	brcs	.+4      	; 0x8c4 <__udivmodhi4_ep>
+ 8c0:	a6 1b       	sub	r26, r22
+ 8c2:	b7 0b       	sbc	r27, r23
+
+000008c4 <__udivmodhi4_ep>:
+ 8c4:	88 1f       	adc	r24, r24
+ 8c6:	99 1f       	adc	r25, r25
+ 8c8:	5a 95       	dec	r21
+ 8ca:	a9 f7       	brne	.-22     	; 0x8b6 <__udivmodhi4_loop>
+ 8cc:	80 95       	com	r24
+ 8ce:	90 95       	com	r25
+ 8d0:	bc 01       	movw	r22, r24
+ 8d2:	cd 01       	movw	r24, r26
+ 8d4:	08 95       	ret
+
+000008d6 <_exit>:
+ 8d6:	f8 94       	cli
+
+000008d8 <__stop_program>:
+ 8d8:	ff cf       	rjmp	.-2      	; 0x8d8 <__stop_program>
