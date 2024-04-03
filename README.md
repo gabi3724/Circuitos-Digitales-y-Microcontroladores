@@ -1,5 +1,6 @@
 # Información
 ![Portada](img.png) 
+
 El repositorio se trata de 3 proyectos de sistemas embebidos realizados a lo largo de la materia "Circuitos Digitales y Microcontroladores". El objetivo de dicha materia es iniciar al alumno en el estudio, diseño e implementación de sistemas embebidos con microcontroladores, orientados a la solución de problemas en tiempo real.
 
 ## Herramientas y materiales utilizados
